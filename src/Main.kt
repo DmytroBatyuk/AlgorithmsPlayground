@@ -4,7 +4,7 @@ import kotlin.random.Random
 val DEBUG = false
 val ARRAY_SIZE = 5000
 val REPEAT = 5
-var UPPER_RANGE = ARRAY_SIZE
+var UPPER_RANGE = 100000
 
 fun main() {
 
@@ -28,18 +28,34 @@ fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {
 }
 
 private fun generateRandomArray(size: Int) = arrayListOf<Int>().apply {
-    for (i in 1..size) {
-        this.add(Random.nextInt(0, UPPER_RANGE))
+    addAll(generateOrderedArray(size))
+
+    for (i in 0 until size) {
+        swap(this, i, Random.nextInt(size))
+    }
+
+    forEach { value ->
+        if (filter { it == value }.size > 1) {
+            throw IllegalStateException("$value is found multiply times")
+        }
     }
 }
 
 private fun generateOrderedArray(size: Int) = arrayListOf<Int>().apply {
-    for(i in 1..size) {
+    for (i in 1..size) {
         this.add(i)
     }
 }
+
 private fun generateReverseOrderedArray(size: Int) = arrayListOf<Int>().apply {
-    for(i in 1..size) {
-        this.add(size-i)
+    for (i in 1..size) {
+        this.add(size - i)
     }
+}
+
+private var tmp: Int = 0
+private fun swap(array: ArrayList<Int>, index1: Int, index2: Int) {
+    tmp = array[index1]
+    array[index1] = array[index2]
+    array[index2] = tmp
 }
