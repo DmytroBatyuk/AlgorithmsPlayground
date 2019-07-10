@@ -1,25 +1,19 @@
-import algorithms.AlgorithmFactory
+import algorithms.Task_3_2_InsertionSortMedian
+import algorithms.Task_3_3_InsertionSortNoDuplicates
 import kotlin.random.Random
 
 val DEBUG = false
-val ARRAY_SIZE = 5000
+val ARRAY_SIZE = 12
 val REPEAT = 5
-var UPPER_RANGE = 100000
+var UPPER_RANGE = ARRAY_SIZE
 
 fun main() {
 
-    val array = generateRandomArray(ARRAY_SIZE)
+    val array = generateRandomArrayWithPossibleRepeatedValues(ARRAY_SIZE)
     println("generated array size=${array.size}, array=$array")
 
-    listOf(
-        AlgorithmFactory.Type.BUBBLE_SORT,
-        AlgorithmFactory.Type.BUBBLE_SORT_TWO_DIRECTION,
-        AlgorithmFactory.Type.INSERTION_SORT
-    ).map {
-        AlgorithmFactory.create(it)
-    }.forEach {
-        it.testAlgorithm(array)
-    }
+    val task_3_3 = Task_3_3_InsertionSortNoDuplicates()
+    task_3_3.run(array)
 }
 
 fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {
@@ -27,7 +21,7 @@ fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {
     it
 }
 
-private fun generateRandomArray(size: Int) = arrayListOf<Int>().apply {
+private fun generateRandomArrayWithUniqueValues(size: Int) = arrayListOf<Int>().apply {
     addAll(generateOrderedArray(size))
 
     for (i in 0 until size) {
@@ -38,6 +32,12 @@ private fun generateRandomArray(size: Int) = arrayListOf<Int>().apply {
         if (filter { it == value }.size > 1) {
             throw IllegalStateException("$value is found multiply times")
         }
+    }
+}
+
+private fun generateRandomArrayWithPossibleRepeatedValues(size: Int) = arrayListOf<Int>().apply {
+    for (i in 0 until size) {
+        add(Random.nextInt(UPPER_RANGE))
     }
 }
 

@@ -5,7 +5,7 @@ import copy
 import kotlin.system.measureTimeMillis
 
 abstract class AlgorithmAbs {
-    protected val tag: String = javaClass.simpleName
+    val tag: String = javaClass.simpleName
 
     fun testAlgorithm(array: ArrayList<Int>) {
         Thread {
@@ -22,5 +22,5 @@ abstract class AlgorithmAbs {
         }.start()
     }
 
-    protected abstract fun sort(array: ArrayList<Int>)
+    abstract fun sort(array: ArrayList<Int>)
 }

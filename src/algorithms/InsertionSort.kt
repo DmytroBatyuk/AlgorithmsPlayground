@@ -2,7 +2,7 @@ package algorithms
 
 import DEBUG
 
-internal class InsertionSort : AlgorithmAbs() {
+class InsertionSort : AlgorithmAbs() {
     override fun sort(array: ArrayList<Int>) {
         var tmp = 0
         var j: Int
@@ -31,5 +31,8 @@ internal class InsertionSort : AlgorithmAbs() {
                 println("$tag: $array")
             }
         }
+
+        val median = array[array.size/2]
+        println("$tag: median index=${array.size/2}, value=$median")
     }
 }

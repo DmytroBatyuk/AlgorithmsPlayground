@@ -2,7 +2,7 @@ package algorithms
 
 import DEBUG
 
-internal class BubbleSortTwoDirection : AlgorithmAbs() {
+internal class Task_3_1_BubbleSortTwoDirection : AlgorithmAbs() {
     override fun sort(array: ArrayList<Int>) {
         var tmp: Int
 
