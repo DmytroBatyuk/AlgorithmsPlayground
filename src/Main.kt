@@ -1,23 +1,24 @@
 import algorithms.BubbleSort
 import algorithms.InsertionSort
 import algorithms.Task_3_4_OddEvenSort
+import algorithms.Task_3_6_InsertionLoopWithinLoopRemoveDups
 import java.util.Collections.swap
 import kotlin.random.Random
 
-val DEBUG = false
-val ARRAY_SIZE = 20000
+val DEBUG = true
+val ARRAY_SIZE = 15
 val REPEAT = 1
 var UPPER_RANGE = ARRAY_SIZE
 
 fun main() {
 
     val array =
-        generateOrderedArray(ARRAY_SIZE)
-        generateRandomArrayWithUniqueValues(ARRAY_SIZE)
-//        generateRandomArrayWithPossibleRepeatedValues(ARRAY_SIZE)
-    println("generated array size=${array.size}, array=$array"§)
+//        generateOrderedArray(ARRAY_SIZE)
+//        generateRandomArrayWithUniqueValues(ARRAY_SIZE)
+        generateRandomArrayWithPossibleRepeatedValues(ARRAY_SIZE)
+    println("generated array size=${array.size}, array=$array")
 
-    InsertionSort().testAlgorithm(array)
+    Task_3_6_InsertionLoopWithinLoopRemoveDups().testAlgorithm(array)
 }
 
 fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {

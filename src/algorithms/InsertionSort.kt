@@ -2,7 +2,7 @@ package algorithms
 
 import DEBUG
 
-class InsertionSort : AlgorithmAbs() {
+open class InsertionSort : AlgorithmAbs() {
     override fun sort(array: ArrayList<Int>) {
         var tmp = 0
         var comparisionCount = 0
