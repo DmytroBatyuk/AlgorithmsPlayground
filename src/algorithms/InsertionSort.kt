@@ -5,6 +5,8 @@ import DEBUG
 class InsertionSort : AlgorithmAbs() {
     override fun sort(array: ArrayList<Int>) {
         var tmp = 0
+        var comparisionCount = 0
+        var copyCount = 0
         var j: Int
         for (i in 0 until array.size) {
             tmp = array[i]
@@ -15,8 +17,9 @@ class InsertionSort : AlgorithmAbs() {
                     else "($value)" }
                 }, save=$tmp")
             }
-            while (j > 0 && array[j - 1] > tmp) {
+            while (j > 0 && ++comparisionCount > 0 && array[j - 1] > tmp) {
                 array[j] = array[j - 1]
+                copyCount++
                 if (DEBUG) {
                     println("$tag: ${array.mapIndexed{i, value ->
                         if (i == j) "-> $value"
@@ -27,12 +30,12 @@ class InsertionSort : AlgorithmAbs() {
                 j--
             }
             array[j] = tmp
+            copyCount++
             if (DEBUG) {
                 println("$tag: $array")
             }
-        }
 
-        val median = array[array.size/2]
-        println("$tag: median index=${array.size/2}, value=$median")
+        }
+        println("$tag: arraySize=${array.size}, comparisions=$comparisionCount, copies=$copyCount")
     }
 }
