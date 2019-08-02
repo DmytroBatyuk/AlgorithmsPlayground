@@ -6,12 +6,14 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 private const val DEBUG = false
-class QueuePriority(size: Int) : Queue(size, DEBUG) {
+class QueuePriority(size: Int, private val prioritizeOnInsert: Boolean = true) : Queue(size, DEBUG) {
 
     @Synchronized
     override fun insert(value: Int) {
         super.insert(value)
-        prioritize()
+        if (prioritizeOnInsert) {
+            prioritize()
+        }
     }
 
     private fun prioritize() {
@@ -42,6 +44,9 @@ class QueuePriority(size: Int) : Queue(size, DEBUG) {
 
     @Synchronized
     override fun remove(): Int? {
+        if (!prioritizeOnInsert) {
+            prioritize()
+        }
         return super.remove()
     }
 

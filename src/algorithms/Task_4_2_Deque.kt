@@ -7,8 +7,8 @@ import kotlin.test.assertTrue
 class Task_4_2_Deque(size: Int, private val DEBUG: Boolean = false) {
     val array = arrayOfNulls<Int>(size + 1)
 
-    var iIndex = -1
-    var rIndex = 0
+    var indexR = -1
+    var indexL = 0
 
 
     fun insertLeft(value: Int) {
@@ -16,12 +16,12 @@ class Task_4_2_Deque(size: Int, private val DEBUG: Boolean = false) {
             throw QueueException("is full")
         }
 
-        if (--rIndex == -1) {
-            rIndex = array.size -1
+        if (--indexL == -1) {
+            indexL = array.size -1
         }
-        array[rIndex] = value
+        array[indexL] = value
         if (DEBUG) {
-            println("insertL: [$rIndex]=$value, array=${Arrays.toString(array)}")
+            println("insertL: [$indexL]=$value, array=${Arrays.toString(array)}")
         }
     }
 
@@ -29,12 +29,12 @@ class Task_4_2_Deque(size: Int, private val DEBUG: Boolean = false) {
         if (isFull()) {
             throw QueueException("is full")
         }
-        if (iIndex == array.size -1) {
-            iIndex = -1
+        if (indexR == array.size -1) {
+            indexR = -1
         }
-        array[++iIndex] = value
+        array[++indexR] = value
         if (DEBUG) {
-            println("insertR: [$iIndex]=$value, array=${Arrays.toString(array)}")
+            println("insertR: [$indexR]=$value, array=${Arrays.toString(array)}")
         }
     }
 
@@ -42,13 +42,13 @@ class Task_4_2_Deque(size: Int, private val DEBUG: Boolean = false) {
         if (isEmpty()) {
             throw QueueException("is empty")
         }
-        val savedIndex = rIndex
-        var retVal = array[rIndex++]
+        val savedIndex = indexL
+        var retVal = array[indexL++]
 
         array[savedIndex] = null
 
-        if (rIndex == array.size) {
-            rIndex = 0
+        if (indexL == array.size) {
+            indexL = 0
         }
 
         if (DEBUG) {
@@ -63,13 +63,13 @@ class Task_4_2_Deque(size: Int, private val DEBUG: Boolean = false) {
             throw QueueException("is empty")
         }
 
-        val savedIndex = iIndex
-        val retVal = array[iIndex]
+        val savedIndex = indexR
+        val retVal = array[indexR]
 
-        array[iIndex] = null
+        array[indexR] = null
 
-        if (--iIndex == -1) {
-            iIndex = array.size - 1
+        if (--indexR == -1) {
+            indexR = array.size - 1
         }
 
         if (DEBUG) {
@@ -80,17 +80,17 @@ class Task_4_2_Deque(size: Int, private val DEBUG: Boolean = false) {
     }
 
     fun isEmpty(): Boolean {
-        val result = (iIndex + 1 == rIndex || rIndex + array.size - 1 == iIndex)
+        val result = (indexR + 1 == indexL || indexL + array.size - 1 == indexR)
         if (DEBUG) {
-            println("isEmpty: $result, insertInd=$iIndex, removeInd=$rIndex")
+            println("isEmpty: $result, insertInd=$indexR, removeInd=$indexL")
         }
         return result
     }
 
     fun isFull() : Boolean {
-        val result = (iIndex + 2 == rIndex || rIndex + array.size - 2 == iIndex)
+        val result = (indexR + 2 == indexL || indexL + array.size - 2 == indexR)
         if (DEBUG) {
-            println("isFull: $result, insertInd=$iIndex, removeInd=$rIndex")
+            println("isFull: $result, insertInd=$indexR, removeInd=$indexL")
         }
         return result
     }
