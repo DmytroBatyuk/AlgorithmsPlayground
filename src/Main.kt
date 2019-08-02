@@ -20,8 +20,9 @@ fun main() {
 //
 //    Task_3_6_InsertionLoopWithinLoopRemoveDups().testAlgorithm(array)
 
-//    QueuePriority.test()
-    Task_4_1_DisplayContent().run()
+////    QueuePriority.test()
+//    Task_4_1_DisplayContent().run()
+    Task_4_2_Deque.test()
 }
 
 fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {
