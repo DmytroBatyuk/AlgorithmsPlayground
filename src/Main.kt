@@ -22,7 +22,7 @@ fun main() {
 
 ////    QueuePriority.test()
 //    Task_4_1_DisplayContent().run()
-    Task_4_2_Deque.test()
+    Task_4_3_StackBasedOnDeque.test()
 }
 
 fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {

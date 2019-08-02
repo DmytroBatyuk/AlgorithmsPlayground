@@ -4,9 +4,7 @@ import datastructures.QueueException
 import java.util.*
 import kotlin.test.assertTrue
 
-private val DEBUG = true
-
-class Task_4_2_Deque(size: Int) {
+class Task_4_2_Deque(size: Int, private val DEBUG: Boolean = false) {
     val array = arrayOfNulls<Int>(size + 1)
 
     var iIndex = -1

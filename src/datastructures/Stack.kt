@@ -1,20 +1,19 @@
 package datastructures
 
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class Stack(size: Int) {
+class Stack(size: Int) : IStack {
     private val array = arrayOfNulls<Int>(size)
     private var index = -1
-    fun push(t: Int) {
+    override fun push(t: Int) {
         array[++index] = t
     }
 
-    fun pop() = array[index--]
+    override fun pop() = array[index--]
 
-    fun isEmpty() = index == -1
-    fun isFull() = index == array.size -1
+    override fun isEmpty() = index == -1
+    override fun isFull() = index == array.size -1
 
     companion object {
         val size = 5
