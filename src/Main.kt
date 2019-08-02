@@ -2,6 +2,9 @@ import algorithms.BubbleSort
 import algorithms.InsertionSort
 import algorithms.Task_3_4_OddEvenSort
 import algorithms.Task_3_6_InsertionLoopWithinLoopRemoveDups
+import datastructures.Queue
+import datastructures.QueuePriority
+import datastructures.Stack
 import java.util.Collections.swap
 import kotlin.random.Random
 
@@ -12,13 +15,15 @@ var UPPER_RANGE = ARRAY_SIZE
 
 fun main() {
 
-    val array =
-//        generateOrderedArray(ARRAY_SIZE)
-//        generateRandomArrayWithUniqueValues(ARRAY_SIZE)
-        generateRandomArrayWithPossibleRepeatedValues(ARRAY_SIZE)
-    println("generated array size=${array.size}, array=$array")
+//    val array =
+////        generateOrderedArray(ARRAY_SIZE)
+////        generateRandomArrayWithUniqueValues(ARRAY_SIZE)
+//        generateRandomArrayWithPossibleRepeatedValues(ARRAY_SIZE)
+//    println("generated array size=${array.size}, array=$array")
+//
+//    Task_3_6_InsertionLoopWithinLoopRemoveDups().testAlgorithm(array)
 
-    Task_3_6_InsertionLoopWithinLoopRemoveDups().testAlgorithm(array)
+    QueuePriority.test()
 }
 
 fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {

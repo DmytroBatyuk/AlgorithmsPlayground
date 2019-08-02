@@ -1,8 +1,7 @@
 package algorithms
 
-import DEBUG
 
-open class InsertionSort : AlgorithmAbs() {
+open class InsertionSort(private val DEBUG: Boolean = false) : AlgorithmAbs() {
     override fun sort(array: ArrayList<Int>) {
         var tmp = 0
         var comparisionCount = 0
@@ -36,6 +35,8 @@ open class InsertionSort : AlgorithmAbs() {
             }
 
         }
-        println("$tag: arraySize=${array.size}, comparisions=$comparisionCount, copies=$copyCount")
+        if (DEBUG) {
+            println("$tag: arraySize=${array.size}, comparisions=$comparisionCount, copies=$copyCount")
+        }
     }
 }
