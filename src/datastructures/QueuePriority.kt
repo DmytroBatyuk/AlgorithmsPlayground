@@ -2,12 +2,11 @@ package datastructures
 
 import algorithms.InsertionSort
 import java.util.*
-import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 private const val DEBUG = false
-class QueuePriority(size: Int) : Queue(size) {
+class QueuePriority(size: Int) : Queue(size, DEBUG) {
 
     @Synchronized
     override fun insert(value: Int) {
@@ -16,12 +15,11 @@ class QueuePriority(size: Int) : Queue(size) {
     }
 
     private fun prioritize() {
-        var realSize = (iIndex+1 + array.size - rIndex)%array.size
         if (DEBUG) {
-            println("prioritize: real size=$realSize")
+            println("prioritize: real size=${realSize()}")
         }
         val a = arrayListOf<Int>()
-        for (i in 0 until realSize) {
+        for (i in 0 until realSize()) {
             a.add(array[(i+array.size+rIndex)%array.size]!!)
         }
         if (DEBUG) {

@@ -1,7 +1,4 @@
-import algorithms.BubbleSort
-import algorithms.InsertionSort
-import algorithms.Task_3_4_OddEvenSort
-import algorithms.Task_3_6_InsertionLoopWithinLoopRemoveDups
+import algorithms.*
 import datastructures.Queue
 import datastructures.QueuePriority
 import datastructures.Stack
@@ -23,7 +20,8 @@ fun main() {
 //
 //    Task_3_6_InsertionLoopWithinLoopRemoveDups().testAlgorithm(array)
 
-    QueuePriority.test()
+//    QueuePriority.test()
+    Task_4_1_DisplayContent().run()
 }
 
 fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {

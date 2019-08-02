@@ -7,10 +7,10 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 open class Queue(size: Int, private val debug: Boolean = false) {
-    protected val array = arrayOfNulls<Int>(size + 1)
+    val array = arrayOfNulls<Int>(size + 1)
 
-    protected var iIndex = -1
-    protected var rIndex = 0
+    var iIndex = -1
+    var rIndex = 0
 
     open fun insert(value: Int) {
         if (isFull()) {
@@ -68,6 +68,8 @@ open class Queue(size: Int, private val debug: Boolean = false) {
         }
         return result
     }
+
+    fun realSize() = (iIndex+1 + array.size - rIndex)%array.size
 
     companion object {
         private val SIZE = 5
