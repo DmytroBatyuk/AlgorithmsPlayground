@@ -1,7 +1,6 @@
 package algorithms
 
-import DEBUG
-
+private const val DEBUG = false
 internal class SelectionSort : AlgorithmAbs() {
     override fun sort(array: ArrayList<Int>) {
         var minIndex = 0

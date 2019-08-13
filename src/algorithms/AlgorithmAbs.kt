@@ -1,7 +1,7 @@
 package algorithms
 
-import REPEAT
-import copy
+import common.REPEAT
+import common.copy
 import kotlin.system.measureTimeMillis
 
 abstract class AlgorithmAbs {

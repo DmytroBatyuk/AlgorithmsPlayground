@@ -1,8 +1,10 @@
-package algorithms
+package tasks
 
-import DEBUG
+import algorithms.InsertionSort
+
 private val DEFAULT_MIN = -1
 
+private const val DEBUG = false
 internal class Task_3_6_InsertionLoopWithinLoopRemoveDups : InsertionSort() {
     override fun sort(array: ArrayList<Int>) {
         if (DEBUG) {

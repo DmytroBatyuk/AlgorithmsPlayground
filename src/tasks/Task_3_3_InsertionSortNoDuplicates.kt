@@ -1,4 +1,6 @@
-package algorithms
+package tasks
+
+import algorithms.InsertionSort
 
 
 private val DEBUG = true

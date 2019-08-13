@@ -1,4 +1,6 @@
-package algorithms
+package tasks
+
+import algorithms.InsertionSort
 
 private fun InsertionSort.median(array: ArrayList<Int>): Int {
     sort(array)

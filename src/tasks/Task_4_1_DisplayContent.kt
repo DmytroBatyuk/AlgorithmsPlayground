@@ -1,4 +1,4 @@
-package algorithms
+package tasks
 
 import datastructures.Queue
 import java.util.*

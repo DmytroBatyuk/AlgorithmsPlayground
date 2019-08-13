@@ -1,4 +1,4 @@
-package algorithms
+package tasks
 
 import datastructures.IStack
 import kotlin.test.assertEquals

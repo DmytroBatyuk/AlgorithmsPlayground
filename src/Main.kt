@@ -1,20 +1,19 @@
-import algorithms.*
-import datastructures.Queue
-import datastructures.QueuePriority
-import datastructures.Stack
-import java.util.Collections.swap
-import kotlin.random.Random
+import algorithms.MergeSort
+import algorithms.SelectionSort
+import common.ARRAY_SIZE
+import common.Recursion
+import common.generateRandomArrayWithUniqueValues
+import tasks.Task_6_1_Mult_recur
+import tasks.Task_6_2_Draw_binary_tree
+import tasks.Task_6_4_ArbitraryKnapsack
+import tasks.Task_6_5_ShowTeams
 
-val DEBUG = true
-val ARRAY_SIZE = 15
-val REPEAT = 1
-var UPPER_RANGE = ARRAY_SIZE
 
 fun main() {
 
-//    val array =
+    val array =
 ////        generateOrderedArray(ARRAY_SIZE)
-////        generateRandomArrayWithUniqueValues(ARRAY_SIZE)
+        generateRandomArrayWithUniqueValues(ARRAY_SIZE)
 //        generateRandomArrayWithPossibleRepeatedValues(ARRAY_SIZE)
 //    println("generated array size=${array.size}, array=$array")
 //
@@ -22,42 +21,8 @@ fun main() {
 
 ////    QueuePriority.test()
 //    Task_4_1_DisplayContent().run()
-    Task_4_4_PriorityQueueTimeTesting(true).test()
-}
 
-fun <T> ArrayList<T>.copy() = arrayListOf<T>().let {
-    it.addAll(this)
-    it
-}
-
-private fun generateRandomArrayWithUniqueValues(size: Int) = arrayListOf<Int>().apply {
-    addAll(generateOrderedArray(size))
-
-    for (i in 0 until size) {
-        swap(this, i, Random.nextInt(size))
-    }
-
-    forEach { value ->
-        if (filter { it == value }.size > 1) {
-            throw IllegalStateException("$value is found multiply times")
-        }
-    }
-}
-
-private fun generateRandomArrayWithPossibleRepeatedValues(size: Int) = arrayListOf<Int>().apply {
-    for (i in 0 until size) {
-        add(Random.nextInt(UPPER_RANGE))
-    }
-}
-
-private fun generateOrderedArray(size: Int) = arrayListOf<Int>().apply {
-    for (i in 1..size) {
-        this.add(i)
-    }
-}
-
-private fun generateReverseOrderedArray(size: Int) = arrayListOf<Int>().apply {
-    for (i in 1..size) {
-        this.add(size - i)
-    }
+    Task_6_4_ArbitraryKnapsack(1000, generateRandomArrayWithUniqueValues(100).let {list ->
+        list.toArray(Array<Int>(list.size) { it -> list[it] })
+    }).run()
 }

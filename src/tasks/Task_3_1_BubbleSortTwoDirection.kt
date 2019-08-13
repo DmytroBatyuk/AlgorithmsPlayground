@@ -1,7 +1,8 @@
-package algorithms
+package tasks
 
-import DEBUG
+import algorithms.AlgorithmAbs
 
+private const val DEBUG = false
 internal class Task_3_1_BubbleSortTwoDirection : AlgorithmAbs() {
     override fun sort(array: ArrayList<Int>) {
         var tmp: Int

@@ -1,5 +1,6 @@
-package algorithms
+package tasks
 
+import algorithms.AlgorithmAbs
 import java.util.Collections.swap
 
 private val DEBUG = false
