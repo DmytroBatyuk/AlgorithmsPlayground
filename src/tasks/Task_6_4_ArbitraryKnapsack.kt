@@ -54,6 +54,7 @@ class Task_6_4_ArbitraryKnapsack(
 
         if (bestSelection.remain > 0) {
             if (sel.items.isNotEmpty()) {
+
                 if (DEBUG) println("       list=$tmpList, best is not 0, try with another item" + if (sel.items.isNotEmpty()) " and pop" else "")
                 val w = if (sel.items.isNotEmpty()) sel.items.pop() else 0
                 matchRecur(startInd/* + 1*/, Selection(sel.remain + w, Stack<Int>().apply {
